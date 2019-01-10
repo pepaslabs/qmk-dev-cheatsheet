@@ -3,7 +3,7 @@ Some notes about QMK internals
 
 ## Some important types
 
-### `struct action_t`
+### `union action_t`
 
 [From `action_code.h`](https://github.com/qmk/qmk_firmware/blob/84c24188176c3235b7064a9a77855f042ada2314/tmk_core/common/action_code.h#L137):
 
