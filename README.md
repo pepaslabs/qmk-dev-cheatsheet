@@ -62,6 +62,16 @@ typedef union {
 } action_t;
 ```
 
+
+## The loop
+
+
+- [`process_record_quantum()`](https://github.com/qmk/qmk_firmware/blob/9c2d77612391c1c762dc53e53aab4f91c50d22f8/quantum/quantum.c#L206)
+  - layer is determined via `layer_switch_get_layer()`
+  - keycode is determined via `keymap_key_to_keycode()`
+  - calls `process_action_kb()`
+
+
 ## Manually sending keycodes
 
 [From `quantum.h`](https://github.com/qmk/qmk_firmware/blob/9c2d77612391c1c762dc53e53aab4f91c50d22f8/quantum/quantum.h#L244):
@@ -72,13 +82,13 @@ void unregister_code16(uint16_t code);
 void tap_code16(uint16_t code);
 ```
 
-## The loop
 
+## Activating / deactivating layers
 
-- [`process_record_quantum()`](https://github.com/qmk/qmk_firmware/blob/9c2d77612391c1c762dc53e53aab4f91c50d22f8/quantum/quantum.c#L206)
-  - layer is determined via `layer_switch_get_layer()`
-  - keycode is determined via `keymap_key_to_keycode()`
-  - calls `process_action_kb()`
+[From `action_layer.h`](https://github.com/qmk/qmk_firmware/blob/9c2d77612391c1c762dc53e53aab4f91c50d22f8/tmk_core/common/action_layer.h#L62)
+
+- `layer_on()`
+- `layer_off()`
 
 
 ## Mods
