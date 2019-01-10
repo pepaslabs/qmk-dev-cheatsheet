@@ -87,6 +87,7 @@ void tap_code16(uint16_t code);
 - Activate mods: `register_mods(MOD_BIT(KC_RSFT))`
 - Deactivate mods: `unregister_mods(MOD_BIT(KC_RSFT))`
 
+
 ## Adding / removing keys from the current report
 
 [See action_util.h](https://github.com/qmk/qmk_firmware/blob/9c2d77612391c1c762dc53e53aab4f91c50d22f8/tmk_core/common/action_util.h#L32)
@@ -94,6 +95,11 @@ void tap_code16(uint16_t code);
 - `add_key()`
 - `del_key()`
 - `clear_keys()`
+
+- `add_mods()`
+- `del_mods()`
+- `set_mods()`
+- `clear_mods()`
 
 
 ## Transmissing key events to the computer
