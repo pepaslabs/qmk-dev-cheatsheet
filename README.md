@@ -71,3 +71,31 @@ void register_code16(uint16_t code);
 void unregister_code16(uint16_t code);
 void tap_code16(uint16_t code);
 ```
+
+## The loop
+
+
+- [`process_record_quantum()`](https://github.com/qmk/qmk_firmware/blob/9c2d77612391c1c762dc53e53aab4f91c50d22f8/quantum/quantum.c#L206)
+  - layer is determined via `layer_switch_get_layer()`
+  - keycode is determined via `keymap_key_to_keycode()`
+  - calls `process_action_kb()`
+
+
+## Mods
+
+- Check for a mod: `if (get_mods() & MOD_BIT(KC_LSHIFT))`
+- Activate mods: `register_mods(MOD_BIT(KC_RSFT))`
+- Deactivate mods: `unregister_mods(MOD_BIT(KC_RSFT))`
+
+## Adding / removing keys from the current report
+
+[See action_util.h](https://github.com/qmk/qmk_firmware/blob/9c2d77612391c1c762dc53e53aab4f91c50d22f8/tmk_core/common/action_util.h#L32)
+
+- `add_key()`
+- `del_key()`
+- `clear_keys()`
+
+
+## Transmissing key events to the computer
+
+- `send_keyboard_report()`
