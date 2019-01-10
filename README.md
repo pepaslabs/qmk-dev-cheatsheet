@@ -3,6 +3,8 @@ Some notes about QMK internals
 
 ## Some important types
 
+
+
 ### `union action_t`
 
 [From `action_code.h`](https://github.com/qmk/qmk_firmware/blob/84c24188176c3235b7064a9a77855f042ada2314/tmk_core/common/action_code.h#L137):
@@ -58,4 +60,14 @@ typedef union {
         uint8_t  kind   :4;
     } swap;
 } action_t;
+```
+
+## Manually sending keycodes
+
+[From `quantum.h`](https://github.com/qmk/qmk_firmware/blob/9c2d77612391c1c762dc53e53aab4f91c50d22f8/quantum/quantum.h#L244):
+
+```c
+void register_code16(uint16_t code);
+void unregister_code16(uint16_t code);
+void tap_code16(uint16_t code);
 ```
